@@ -1,10 +1,13 @@
+
 # 3gsocks
 
 This is a multi-platform reverse connect remote socks5 network pivot.
 
 * Socks5 based network pivoting
 * TLS transport with cert pinning
-* Should run on damn near anything (probably ymmv)
+* Should run on damn near anything
+	* Tested - windows and linux (tested)
+	* Totally untested but probably working - various bsds, mac os, aix, solaris, plan9, android
 * Precompiled binaries available (under dist/) if you're that way inclined
 
 Inspired by some socks functionality I found that one time in some malware I was reverse.
@@ -16,11 +19,11 @@ Spin up the server on your local machine (or your c2 server, whatever) which wil
 
 If you're on some sort of linux you can do the following:
 
-Generate some self signed certs
+Generate some self signed certs:
 
 `$ openssl req -x509 -nodes -newkey rsa:4096 -keyout key.pem -out cert.pem -days 90`
 
-Run the server (on linux)
+Run the server on linux (note that windows or whatever should work just as well):
 
 `$ ./3gsocks_server_linux_amd64 --connect-back-address 127.0.0.1:9999` (there's way more switches, run with a -h to see these and override defaults)
 
@@ -35,7 +38,7 @@ This will then connect back to your server and all going well anything you pipe 
 Any issues will end up pushed to stdout/stderr, so look at those if you're having issues.
 
 
-#FAQ
+# FAQ
 
 Can I have multiple clients connect to the same server? Nooope
 
@@ -47,8 +50,8 @@ It doesn't work!? I dunno duuude, fix it up and fire me a pull request.
 
 ## Acknowledgements
 
-* The nspps golang rat authors who inspired me to replicate and improve their socks5 pivot.
-* 3gstudent who's "homework" code I used as a base, as I have a sneaking (and totally unproven) suspicion was also used as a base by the nspps authors.
+* The [nspps](https://ironnet.com/blog/malware-analysis-nspps-a-go-rat-backdoor/) golang rat authors who inspired me to replicate and improve their socks5 pivot.
+* [3gstudent](https://github.com/3gstudent/Homework-of-Go) who's "homework" code I used as a base, as I have a sneaking (and totally unproven) suspicion this was also used as a base by the nspps authors.
 
 ## License
 BSD License, see LICENSE file
