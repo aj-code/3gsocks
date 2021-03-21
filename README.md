@@ -6,11 +6,11 @@ This is a multi-platform reverse connect remote socks5 network pivot.
 * Socks5 based network pivoting
 * TLS transport with cert pinning
 * Should run on damn near anything
-	* Tested - windows and linux (tested)
+	* Tested - windows and linux
 	* Totally untested but probably working - various bsds, mac os, aix, solaris, plan9, android
 * Precompiled binaries available (under dist/) if you're that way inclined
 
-Inspired by some socks functionality I found that one time in some malware I was reverse.
+Inspired by some socks functionality I found that one time in some malware I was reversing.
 
 
 ## Usage
@@ -23,7 +23,7 @@ Generate some self signed certs:
 
 `$ openssl req -x509 -nodes -newkey rsa:4096 -keyout key.pem -out cert.pem -days 90`
 
-Run the server on linux (note that windows or whatever should work just as well):
+Run the server (note that windows or whatever should work too if you grab the right binaries):
 
 `$ ./3gsocks_server_linux_amd64 --connect-back-address 127.0.0.1:9999` (there's way more switches, run with a -h to see these and override defaults)
 
